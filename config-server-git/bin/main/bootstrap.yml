@@ -1,0 +1,40 @@
+server:
+  port: 8888
+  
+spring:
+  application:
+    name: config-server
+ # profiles: native  
+  cloud:
+    config:
+      server:
+      #  bootstrap: true
+       # prefix: /config
+#        native:
+      #    add-label-locations: false
+        git:
+          clone-on-start: true
+          uri: https://github.com/Jayakanthand/config.git
+          username: userid
+          password: pwd
+          search-paths:
+          - /**
+          
+management:
+#  info:
+#    git:
+#      mode: full
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"
+        
+
+    
+    
+    
+    
